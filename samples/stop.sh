@@ -1,1 +1,1 @@
-sudo docker stop squid-proxy
+docker stop squid-proxy
