@@ -1,1 +1,1 @@
-sudo docker logs squid-proxy -f -n 50
+docker logs squid-proxy -f -n 50
