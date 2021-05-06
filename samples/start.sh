@@ -10,4 +10,4 @@ files="$files;proxy-ca.key:$x"
 
 c=$(cat squid.conf | base64 -w 0)
 
-sudo docker run -d -p 3128:3128 -p 3129:3129 --env SQUID_CONF=$c --env FILES=$files pchahal24/squid-proxy:latest
+sudo docker run -d --name squid-proxy -p 3128:3128 -p 3129:3129 --env SQUID_CONF=$c --env FILES=$files pchahal24/squid-proxy:latest
