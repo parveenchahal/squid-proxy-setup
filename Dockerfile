@@ -6,6 +6,9 @@ RUN dpkg-reconfigure apt-utils
 RUN apt-get install -y libssl-dev pkg-config build-essential autoconf wget jq curl vim
 RUN apt-get upgrade -y
 
+RUN groupadd -g 456 squid
+RUN useradd -g squid squid
+
 RUN wget http://www.squid-cache.org/Versions/v4/squid-4.14.tar.gz
 RUN tar -xvzf squid-4.14.tar.gz
 RUN rm squid-4.14.tar.gz
