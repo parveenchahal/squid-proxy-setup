@@ -10,7 +10,7 @@
 - # Create user
     Intall htpasswd if not already installed. Run `sudo apt install apache2-utils`
     ```
-    sudo htpasswd -c ./user <username>
+    sudo htpasswd -c ./users <username>
     ```
 - # Modify the squid.conf as per your requirement
 - # Start proxy
