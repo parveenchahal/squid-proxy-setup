@@ -19,7 +19,14 @@
     chmod +x start.sh
     ./start.sh
     ```
-# 3. For transparent proxy set iptables rules
+# 3. Configure below rules for transparent proxy
+- # Enable ip forwarding
+    open file "/etc/sysctl.conf" and uncomment below
+    ```
+    net.ipv4.ip_forward = 1
+    ```
+- # Set ip table NAT rules
+    ```
     inf=<interface name>
     http_proxy_port=<port>
     https_proxy_port=<port>
@@ -27,3 +34,4 @@
     sudo iptables -t nat -A PREROUTING -i $inf -p tcp --dport 80 -j REDIRECT --to-port $http_proxy_port
     sudo iptables -t nat -A PREROUTING -i $inf -p tcp --dport 443 -j REDIRECT --to-port $https_proxy_port
     sudo iptables --t nat -A POSTROUTING -o $inf -p tcp -j MASQUERADE
+    ```
