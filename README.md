@@ -33,5 +33,5 @@
     
     sudo iptables -t nat -A PREROUTING -i $inf -p tcp --dport 80 -j REDIRECT --to-port $http_proxy_port
     sudo iptables -t nat -A PREROUTING -i $inf -p tcp --dport 443 -j REDIRECT --to-port $https_proxy_port
-    sudo iptables --t nat -A POSTROUTING -o $inf -p tcp -j MASQUERADE
+    sudo iptables -t nat -A POSTROUTING -o $inf -p tcp -j MASQUERADE
     ```
