@@ -1,6 +1,6 @@
 # 1. Install docker
     https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
-# 2. Run below in samples directory
+# 2. Run below to start a squid container
 - # Create CA certificates (Required only for SSL-Proxy)
     ```
     CN="proxy-ca"
