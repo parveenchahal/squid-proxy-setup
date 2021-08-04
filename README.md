@@ -37,6 +37,5 @@
     sudo iptables -t nat -A PREROUTING -i $inf -p tcp --dport 80 -j REDIRECT --to-port $http_proxy_port
     sudo iptables -t nat -A PREROUTING -i $inf -p tcp --dport 443 -j REDIRECT --to-port $https_proxy_port
     sudo iptables -t nat -A POSTROUTING -o $inf -p tcp -j MASQUERADE
-    
-    iptables-save > /etc/iptables.rules
     ```
+    Use `iptables-persistent` to persist these rules; `sudo apt-get install iptables-persistent`
