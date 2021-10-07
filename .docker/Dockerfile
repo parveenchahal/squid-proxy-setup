@@ -14,12 +14,13 @@ RUN tar -xvzf squid-4.14.tar.gz
 RUN rm squid-4.14.tar.gz
 
 WORKDIR /squid-4.14
-RUN ./configure --with-openssl --enable-ssl-crtd --disable-arch-native
+RUN ./configure --with-default-user=proxy --with-openssl --enable-ssl-crtd --disable-arch-native
 RUN make
 RUN make install
 
 RUN chmod 777 /usr/local/squid/var/logs
 RUN /usr/local/squid/libexec/security_file_certgen -c -s /usr/local/squid/var/cache/squid/ssl_db -M 4MB
+RUN chown proxy:proxy /usr/local/squid/var/cache/squid/ssl_db -R
 
 WORKDIR /
 RUN rm -r /squid-4.14
