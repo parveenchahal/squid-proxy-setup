@@ -9,11 +9,11 @@ RUN apt-get upgrade -y
 RUN groupadd -g 456 squid
 RUN useradd -g squid squid
 
-RUN wget http://www.squid-cache.org/Versions/v5/squid-5.2.tar.gz
-RUN tar -xvzf squid-5.2.tar.gz
-RUN rm squid-5.2.tar.gz
+RUN wget http://www.squid-cache.org/Versions/v4/squid-4.14.tar.gz
+RUN tar -xvzf squid-4.14.tar.gz
+RUN rm squid-4.14.tar.gz
 
-WORKDIR /squid-5.2
+WORKDIR /squid-4.14
 RUN ./configure --with-default-user=proxy --with-openssl --enable-ssl-crtd --disable-arch-native
 RUN make
 RUN make install
@@ -23,7 +23,7 @@ RUN /usr/local/squid/libexec/security_file_certgen -c -s /usr/local/squid/var/ca
 RUN chown proxy:proxy /usr/local/squid/var/cache/squid/ssl_db -R
 
 WORKDIR /
-RUN rm -r /squid-5.2
+RUN rm -r /squid-4.14
 
 COPY startup.sh .
 RUN chmod +x startup.sh
