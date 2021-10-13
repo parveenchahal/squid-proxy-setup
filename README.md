@@ -13,7 +13,7 @@
     ```
     htpasswd -c ./users <username>
     ```
-- # Modify the squid.conf as per your requirement
+- # Modify the files/squid.conf as per your requirement
 - # Start proxy
     ```
     chmod +x start.sh
