@@ -1,6 +1,5 @@
-cp /files/* .
-
-/usr/local/squid/sbin/squid start -f /squid.conf
+cd /files
+/usr/local/squid/sbin/squid start -f squid.conf
 
 echo "* * * * * /rotate_access_logs_and_cleanup.sh" | crontab -
 service cron restart
