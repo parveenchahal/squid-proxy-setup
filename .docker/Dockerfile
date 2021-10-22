@@ -1,17 +1,15 @@
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends apt-utils
-RUN dpkg-reconfigure apt-utils
-RUN apt-get install -y libssl-dev pkg-config build-essential autoconf wget jq curl vim cron
-RUN apt-get upgrade -y
+RUN apt update &&\
+  apt install -y --no-install-recommends apt-utils &&\
+  dpkg-reconfigure apt-utils &&\
+  apt install -y libssl-dev pkg-config build-essential autoconf wget jq curl vim cron &&\
+  apt upgrade -y
 
-RUN groupadd -g 456 squid
-RUN useradd -g squid squid
+RUN groupadd -g 456 squid &&\
+  useradd -g squid squid
 
-RUN wget http://www.squid-cache.org/Versions/v4/squid-4.14.tar.gz
-RUN tar -xvzf squid-4.14.tar.gz
-RUN rm squid-4.14.tar.gz
+RUN curl -L http://www.squid-cache.org/Versions/v4/squid-4.14.tar.gz | tar -xz
 
 WORKDIR /squid-4.14
 RUN ./configure --with-default-user=proxy --with-openssl --enable-ssl-crtd --disable-arch-native
