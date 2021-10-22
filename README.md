@@ -56,7 +56,7 @@ The network topology should look like this.
         dhcp-authoritative
         ```
     
-    4.  Start the DHCP service.
+    4.  Restart the dnsmsq service.
         ```bash
         sudo systemctl restart dnsmasq
         ```
@@ -137,7 +137,7 @@ To pass environment variables during sudo, you can run `sudo -E`
 
 [1]: https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-04-bionic-beaver-linux
 [2]: https://www.tecmint.com/set-add-static-ip-address-in-linux/
-[3]: https://www.tecmint.com/install-dhcp-server-in-ubuntu-debian/
+[3]: https://computingforgeeks.com/install-and-configure-dnsmasq-on-ubuntu/
 [4]: https://www.tecmint.com/setup-a-dns-dhcp-server-using-dnsmasq-on-centos-rhel/
 [5]: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 [6]: http://en.wikipedia.org/wiki/NCSA_HTTPd
