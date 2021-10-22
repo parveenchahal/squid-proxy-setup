@@ -51,7 +51,7 @@ The network topology should look like this.
         listen-address=192.168.0.1
         dhcp-range=192.168.0.100,192.168.0.240,12h
         dhcp-option=option:router,192.168.0.1
-        dhcp-option=option:dns-server,8.8.8.8
+        dhcp-option=option:dns-server,192.168.0.1,8.8.8.8
         dhcp-leasefile=/var/lib/misc/dnsmasq.leases
         dhcp-authoritative
         ```
