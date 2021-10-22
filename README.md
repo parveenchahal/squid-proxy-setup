@@ -80,8 +80,8 @@ sudo apt install docker-ce
         We create an SSL certificate and add it to the squid container
         ```bash
         CN="proxy-ca"
-        openssl genrsa -out proxy-ca.key 4096
-        openssl req -x509 -new -nodes -key proxy-ca.key -sha256 -subj "/C=US/ST=CA/CN=$CN" -days 1024 -out proxy-ca.crt
+        openssl genrsa -out ./files/proxy-ca.key 4096
+        openssl req -x509 -new -nodes -key proxy-ca.key -sha256 -subj "/C=US/ST=CA/CN=$CN" -days 1024 -out ./files/proxy-ca.crt
         ```
         `proxy-ca.crt` is the SSL certificate that will be required to be truted by the clients who want to use SSL proxy.
     
@@ -93,11 +93,11 @@ sudo apt install docker-ce
         sudo apt install apache2-utils
         ```
 
-        Create the password file and save it inside files/
+        Create the proxy auth credentials file
         ```bash
-        # $username, $password will have to be supplied
-        # to authenticate proxy server
-        htpasswd -c ./files/usercreds $username -i $password
+        # $username, $password will have to be supplied to authenticate to the proxy server
+        htpasswd -c ./files/usercreds $username
+        # Enter the password when prompted
         ```
 
     3.  Modify `files/squid.conf` as per your requirement.<br/>
