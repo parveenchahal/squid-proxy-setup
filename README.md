@@ -23,7 +23,7 @@ The network topology should look like this.
 1.  Create an Ubuntu VM that has 2 NICs.
     - `eth0` is connected to `proxy-segment`.
     - `eth1` is connected to `internet-segment`.
-  
+
      The IP of `eth1` can either be statically assigned or can be obtained via a DHCP server running on `internet-segment`.
 
 2.  Assign a static IP `192.168.0.1` to `eth0`.
@@ -70,7 +70,7 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-sudo apt install docker-ce
+sudo usermod -aG docker $USER
 ```
 
 2.  Create / Update the files required by squid
