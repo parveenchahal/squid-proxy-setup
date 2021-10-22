@@ -104,10 +104,9 @@ sudo apt install docker-ce
         Any files that you want to copy to the squid container can be put into `files/`.
         The whole directory will be shared as a volume mount to the squid container.
 
-    4.  Start proxy: [`./start.sh`][./start.sh]
-
-        View access logs: [`./tail_access_logs.sh`][./tail_access_logs.sh]
-        Stop proxy: [`./stop.sh`][./stop.sh]
+    4.  Start proxy: [`./start.sh`](./start.sh)<br/>
+        View access logs: [`./tail_access_logs.sh`](./tail_access_logs.sh)<br/>
+        Stop proxy: [`./stop.sh`](./stop.sh)<br/>
     
 
 ## 3. Machine behind proxy server
@@ -123,8 +122,6 @@ Assuming the proxy ports were unchanged in `squid.conf`, the proxy server is lis
 Set these environment variables (after replacing the `$values`) in `~/.bashrc`:
 ```bash
 proxy_url="http://$username:$password@$host:$port"
-
-proxy_url="http://arcvmware:ms123@192.168.1.1:3128"
 export HTTP_PROXY=$proxy_url
 export HTTPS_PROXY=$proxy_url
 export FTP_PROXY=$proxy_url
