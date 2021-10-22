@@ -35,9 +35,9 @@ The network topology should look like this.
 3.  Run DHCP and DNS Server on the VM. [Ref1][3], [Ref2][4]
     
     If you don't want to set static network configuration for all VMs connected to `proxy-segment`, you will need a DHCP Server. We can install the DHCP server on the same machine where proxy server will be installed. We could have a DNS server in the network too in order to resolve local addresses.<br/>
-    `dnsmasq` can serve both the purposes.
+    `dnsmasq` can serve for both the purposes.
 
-    1.  Install DHCP server
+    1.  Install dnsmasq
         ```
         sudo systemctl disable systemd-resolved
         sudo systemctl stop systemd-resolved
@@ -81,7 +81,7 @@ sudo usermod -aG docker $USER
         ```bash
         CN="proxy-ca"
         openssl genrsa -out ./files/proxy-ca.key 4096
-        openssl req -x509 -new -nodes -key proxy-ca.key -sha256 -subj "/C=US/ST=CA/CN=$CN" -days 1024 -out ./files/proxy-ca.crt
+        openssl req -x509 -new -nodes -key ./files/proxy-ca.key -sha256 -subj "/C=US/ST=CA/CN=$CN" -days 1024 -out ./files/proxy-ca.crt
         ```
         `proxy-ca.crt` is the SSL certificate that will be required to be truted by the clients who want to use SSL proxy.
     
