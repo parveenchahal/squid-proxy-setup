@@ -90,7 +90,7 @@ cd squid-proxy-setup
         openssl genrsa -out ./files/proxy-ca.key 4096
         openssl req -x509 -new -nodes -key ./files/proxy-ca.key -sha256 -subj "/C=US/ST=CA/CN=$CN" -days 1024 -out ./files/proxy-ca.crt
         ```
-        `proxy-ca.crt` is the SSL certificate that will be required to be truted by the clients who want to use SSL proxy.
+        `proxy-ca.crt` is the SSL certificate that will be required to be trusted by the clients who want to use SSL proxy.
     
     2.  Create user credentials (Required only for basic auth)
 
