@@ -35,7 +35,7 @@ The network topology should look like this.
 3.  Run DHCP and DNS Server on the VM. [Ref1][3], [Ref2][4]
     
     If you don't want to set static network configuration for all VMs connected to `proxy-segment`, you will need a DHCP Server. We can install the DHCP server on the same machine where proxy server will be installed. We could have a DNS server in the network too in order to resolve local addresses.<br/>
-    `dnsmasq` can serve for both the purposes.
+    [`dnsmasq`][dnsmasq_arch] can serve for both the purposes.
 
     1.  Install dnsmasq
         ```
@@ -164,7 +164,7 @@ To pass environment variables during sudo, you can run `sudo -E`
 [5]: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 [6]: http://en.wikipedia.org/wiki/NCSA_HTTPd
 [7]: https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html
-
+[dnsmasq_arch]: https://wiki.archlinux.org/title/dnsmasq
 
 <!-- 
     Alternative: Run DHCP Server on the VM.
