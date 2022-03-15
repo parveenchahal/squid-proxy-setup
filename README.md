@@ -119,8 +119,23 @@ cd squid-proxy-setup
 ## 3. Machine behind proxy server
 
 Create another VM which is connected to only `proxy-segment`. We will be using this as the dev machine for testing proxy scenarios.
-    
-Once the machine starts up it should receive an IP address in the range `192.168.0.100-192.168.0.240`. For using SSL proxy you need to trust the `proxy-ca.crt` file that was generated in the proxy server and included in the squid configuration file.
+
+Once the machine starts up it should receive an IP address in the range `192.168.0.100-192.168.0.240`.
+
+For using SSL proxy you need to trust the `proxy-ca.crt` file that was generated in the proxy server and included in the squid configuration file.
+Copy the CA certificate to the client machine, and trust it. To trust it:
+  1. [add it to trusted root of the machine][5]
+  2. Set the environment variable `REQUESTS_CA_BUNDLE=/path/to/proxy-ca.crt`
+
+Option `1` is the safer one.
+
+```bash
+# Only for SSL proxy
+scp 192.168.0.1:~/squid-proxy-setup/files/proxy-ca.crt .
+sudo cp proxy-ca.crt /usr/local/share/ca-certificates/ # The trusted-root path can be different, depending on the Linux distro. Check [this link][5]
+sudo update-ca-certificates
+export REQUESTS_CA_BUNDLE=/usr/local/share/ca-certificates/proxy-ca.crt
+```
 
 Assuming the proxy ports were unchanged in `squid.conf`, the proxy server is listening to:
 - Non-SSL Proxy: `192.168.0.1:3128`
@@ -148,6 +163,7 @@ To pass environment variables during sudo, you can run `sudo -E`
 [4]: https://www.tecmint.com/setup-a-dns-dhcp-server-using-dnsmasq-on-centos-rhel/
 [5]: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 [6]: http://en.wikipedia.org/wiki/NCSA_HTTPd
+[7]: https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html
 
 
 <!-- 
