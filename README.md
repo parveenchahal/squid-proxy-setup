@@ -124,7 +124,7 @@ Once the machine starts up it should receive an IP address in the range `192.168
 
 For using SSL proxy you need to trust the `proxy-ca.crt` file that was generated in the proxy server and included in the squid configuration file.
 Copy the CA certificate to the client machine, and trust it. To trust it:
-  1. [add it to trusted root of the machine][5]
+  1. [add it to trusted root of the machine][7]
   2. Set the environment variable `REQUESTS_CA_BUNDLE=/path/to/proxy-ca.crt`
 
 Option `1` is the safer one.
@@ -132,7 +132,7 @@ Option `1` is the safer one.
 ```bash
 # Only for SSL proxy
 scp 192.168.0.1:~/squid-proxy-setup/files/proxy-ca.crt .
-sudo cp proxy-ca.crt /usr/local/share/ca-certificates/ # The trusted-root path can be different, depending on the Linux distro. Check [this link][5]
+sudo cp proxy-ca.crt /usr/local/share/ca-certificates/ # The trusted-root path can be different, depending on the Linux distro. Check the link above
 sudo update-ca-certificates
 export REQUESTS_CA_BUNDLE=/usr/local/share/ca-certificates/proxy-ca.crt
 ```
