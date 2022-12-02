@@ -16,7 +16,7 @@
 - # Modify the files/squid.conf as per your requirement
 - # Any file want to pass on to container and use in squid config
     Just place that file in `files` directory.<br>
-    Those files can be accessed using `/files/<fileName>` inside container.
+    Those files can be accessed using `/<fileName>` inside container.
 - # Start proxy
     ```
     chmod +x start.sh
