@@ -17,6 +17,9 @@
 - # Any file want to pass on to container and use in squid config
     Just place that file in `files` directory.<br>
     Those files can be accessed using `/files/<fileName>` inside container.
+- # Custom command execution
+    Some custom command can be executed through setup.sh script.
+    setup.sh script will be executed just before starting the server.
 - # Start proxy
     ```
     chmod +x start.sh
