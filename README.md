@@ -18,8 +18,8 @@
     Just place that file in `files` directory.<br>
     Those files can be accessed using `/files/<fileName>` inside container.
 - # Custom command execution
-    Some custom command can be executed through setup.sh script.
-    setup.sh script will be executed just before starting the server.
+    Some custom command can be executed through setup.sh script.<br>
+    setup.sh script will be executed just before starting the squid proxy server.
 - # Start proxy
     ```
     chmod +x start.sh
