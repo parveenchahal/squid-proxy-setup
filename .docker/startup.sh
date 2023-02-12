@@ -50,4 +50,4 @@ fi
 echo "* * * * * /rotate_access_logs_and_cleanup.sh" | crontab -
 service cron restart
 
-tail -F /usr/local/squid/var/logs/access.log
+tail -F /usr/local/squid/var/logs/cache.log /usr/local/squid/var/logs/access.log
