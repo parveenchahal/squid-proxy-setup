@@ -45,6 +45,8 @@ then
   fi
 fi
 
+rm /usr/local/squid/var/run/squid.pid
+
 /usr/local/squid/sbin/squid start -f squid.conf
 
 echo "* * * * * /rotate_access_logs_and_cleanup.sh" | crontab -
